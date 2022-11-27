@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://thymeleaf.org ">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Калькулятор мотивации сотрудников</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32">
+                <use xlink:href="#bootstrap"></use>
+            </svg>
+            <span class="fs-4">Калькулятор мотивации сотрудников</span>
+        </a>
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Главная страница</a></li>
+            <li class="nav-item"><a href="/bonusRatio" class="nav-link active" aria-current="page">Настройка пороговых
+                коэффициентов</a></li>
+        </ul>
+    </header>
+</div>
+
+<h3>Настройка порога</h3>
+<hr>
+<form action="#" th:action="@{/ed/{id}}" th:object="${planEdit}" method="post">
+    <label for="id">id: </label>
+    <input type="number" th:field="*{id}" id="id" readonly>
+
+    <label for="lowerPercent">Нижний порог: </label>
+    <input type="number" step="0.01" th:field="*{lowerPercent}" id="lowerPercent">
+    <label for="highPercent">Высший порог: </label>
+    <input type="number" step="0.01" th:field="*{highPercent}" id="highPercent">
+    <label for="ratioPercent">Коэффициент: </label>
+    <input type="number" step="0.01" th:field="*{ratioPercent}" id="ratioPercent">
+    <br/>
+    <input type="submit" value="Изменить">
+</form>
+
+
+
+</body>
+</html>

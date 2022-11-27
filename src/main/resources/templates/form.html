@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Калькулятор мотивации сотрудников</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32">
+                <use xlink:href="#bootstrap"></use>
+            </svg>
+            <span class="fs-4">Калькулятор мотивации сотрудников</span>
+        </a>
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Главная страница</a></li>
+            <li class="nav-item"><a href="/bonusRatio" class="nav-link active" aria-current="page">Настройка пороговых коэффициентов</a></li>
+            <li class="nav-item"><a href="/planRatio" class="nav-link active" aria-current="page">Настройка коэффициентов выполнения плана</a></li>
+        </ul>
+    </header>
+</div>
+
+<h3>Поля ввода</h3>
+<form action="/forms/result" method="post">
+    Выручка: <input type="number" step="any" name="revenue"/><br><br>
+    Рентабельность(%): <input type="number" step="any" name="profitability"/><br><br>
+    План по выручке: <input type="number" step="any" name="revenuePlan"/><br><br>
+    ГСМ: <input type="number" step="any" name="fuelAndLubricants"/><br><br>
+    Скидка на ГСМ: <input type="number" step="any" name="discountFuelAndLubricants"/><br><br>
+    Дежурства: <input type="number" step="any" name="shifts"/><br><br>
+    НДС перевозчиков к возмещению: <input type="number" step="any" name="vatCarriers"/><br><br>
+    Рабочих дней: <input type="number" name="workDays"/><br><br>
+    Оклад: <input type="number" step="any" name="salary"/><br><br>
+    <input type="submit" value="Рассчитать ЗП"/>
+</form>
+<hr>
+
+<table>
+    <tr>
+        <th> Ставка </th>
+        <th> Оклад по рабочим дням </th>
+        <th> Мотивационная часть </th>
+        <th> С учетом оклада </th>
+    </tr>
+    <tr th:each="res : ${resultForm}">
+        <td th:text="${res.salaryDay}"></td>
+        <td th:text="${res.salaryMonth}"></td>
+        <td th:text="${res.motivationalPart}"></td>
+        <td th:text="${res.finalSalary}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
+
