@@ -32,11 +32,11 @@
     <label for="id">id: </label>
     <input type="number" th:field="*{id}" id="id" readonly>
     <label for="lowerPercent">Нижний порог: </label>
-    <input type="number" step="0.01" min="0.0" required th:field="*{lowerPercent}" id="lowerPercent">
+    <input type="number" step="0.001" min="0.0" required th:field="*{lowerPercent}" id="lowerPercent">
     <label for="highPercent">Высший порог: </label>
-    <input type="number" step="0.01" min="0.01" required th:field="*{highPercent}" id="highPercent">
+    <input type="number" step="0.001" min="0.01" required th:field="*{highPercent}" id="highPercent">
     <label for="ratioPercent">Коэффициент: </label>
-    <input type="number" step="0.01" min="0.0" required th:field="*{ratioPercent}" id="ratioPercent">
+    <input type="number" step="0.001" min="0.0" required th:field="*{ratioPercent}" id="ratioPercent">
     <br/><br/>
     <hr>
     <input type="submit" value="Изменить">
