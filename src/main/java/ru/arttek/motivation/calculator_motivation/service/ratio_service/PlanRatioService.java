@@ -12,15 +12,14 @@ import java.util.Map;
 @Service
 public class PlanRatioService {
     private final Map<Integer, PlanRatio> planRatios = new HashMap<>();
-    private int ID = planRatios.size();
 
     /**
      * В последующем изменения будут в создании таблицы в БД, где будем хранить наши пороговые значения и коэффициенты
      */ {
-        planRatios.put(++ID, new PlanRatio(1, 0, 70, 0.6));
-        planRatios.put(++ID, new PlanRatio(2, 70, 75, 0.8));
-        planRatios.put(++ID, new PlanRatio(3, 75, 120, 1));
-        planRatios.put(++ID, new PlanRatio(4, 120, 1000, 1.2));
+        planRatios.put(1, new PlanRatio(1, 0, 70, 0.6));
+        planRatios.put(2, new PlanRatio(2, 70, 75, 0.8));
+        planRatios.put(3, new PlanRatio(3, 75, 120, 1));
+        planRatios.put(4, new PlanRatio(4, 120, 1000, 1.2));
     }
 
     /**
