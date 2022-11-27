@@ -14,11 +14,11 @@ import javax.validation.constraints.Positive;
 public class BonusRatio {
     @Positive
     @NotEmpty
-    int id;
+    Integer id;
     @Positive(message = "Нижний порог должен быть положительным")
-    double lowerThreshold;
+    Double lowerThreshold;
     @Positive(message = "Высокий порог должен быть положительным")
-    double highThreshold;
+    Double highThreshold;
     @Positive(message = "Коэффициент порог должен быть положительным")
-    double ratio;
+    Double ratio;
 }

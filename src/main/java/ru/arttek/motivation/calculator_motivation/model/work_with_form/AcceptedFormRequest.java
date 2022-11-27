@@ -1,4 +1,4 @@
-package ru.arttek.motivation.calculator_motivation.model.work_form;
+package ru.arttek.motivation.calculator_motivation.model.work_with_form;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,21 +12,21 @@ import javax.validation.constraints.Positive;
 @AllArgsConstructor
 public class AcceptedFormRequest {
     @Positive(message = "Выручка должна быть положительной")
-    private double revenue;
+    private Double revenue;
     @Positive(message = "рентабельность должна быть положительной")
-    private double profitability;
+    private Double profitability;
     @Positive(message = "План по выручке должен быть положительным")
-    private double revenuePlan;
+    private Double revenuePlan;
     @Positive(message = "ГСМ должен быть положительным")
-    private double fuelAndLubricants;
+    private Double fuelAndLubricants;
     @Positive(message = "Скидка на ГСМ должна быть положительной")
-    private double discountFuelAndLubricants;
+    private Double discountFuelAndLubricants;
     @Positive(message = "Сумма за дежурства должна быть положительной")
-    private double shifts;
+    private Double shifts;
     @Positive(message = "Ндс перевозчиков должен быть положительным")
-    private double vatCarriers;
+    private Double vatCarriers;
     @Positive(message = "Рабочие дни должны быть положительными")
-    private int workDays;
+    private Integer workDays;
     @Positive(message = "Оклад должен быть положительным")
-    private double salary;
+    private Double salary;
 }

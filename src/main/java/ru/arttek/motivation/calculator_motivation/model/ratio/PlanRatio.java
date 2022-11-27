@@ -14,11 +14,11 @@ import javax.validation.constraints.Positive;
 public class PlanRatio {
     @Positive
     @NotEmpty
-    int id;
+    Integer id;
     @Positive(message = "Нижний порог должен быть положительным")
-    double lowerPercent;
+    Double lowerPercent;
     @Positive(message = "Высокий порог должен быть положительным")
-    double highPercent;
+    Double highPercent;
     @Positive(message = "Коэффициент порог должен быть положительным")
-    double ratioPercent;
+    Double ratioPercent;
 }
