@@ -45,11 +45,11 @@
         <th> Мотивационная часть </th>
         <th> С учетом оклада </th>
     </tr>
-    <tr th:each="res : ${resultForm}">
-        <td th:text="${res.salaryDay}"></td>
-        <td th:text="${res.salaryMonth}"></td>
-        <td th:text="${res.motivationalPart}"></td>
-        <td th:text="${res.finalSalary}"></td>
+    <tr th:each="resultResponse : ${resultFormResponse}">
+        <td th:text="${resultResponse.salaryDay}"></td>
+        <td th:text="${resultResponse.salaryMonth}"></td>
+        <td th:text="${resultResponse.motivationalPart}"></td>
+        <td th:text="${resultResponse.finalSalary}"></td>
     </tr>
 </table>
 
