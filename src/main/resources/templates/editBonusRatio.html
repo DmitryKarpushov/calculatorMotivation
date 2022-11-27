@@ -18,25 +18,28 @@
         </a>
         <ul class="nav nav-pills">
             <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Главная страница</a></li>
-            <li class="nav-item"><a href="/bonusRatio" class="nav-link active" aria-current="page">Настройка пороговых
-                коэффициентов</a></li>
+            &ensp;
+            <li class="nav-item"><a href="/bonusRatio" class="nav-link active" aria-current="page">Настройка пороговых коэффициентов</a></li>
+            &ensp;
+            <li class="nav-item"><a href="/planRatio" class="nav-link active" aria-current="page">Настройка коэффициентов выполнения плана</a></li>
         </ul>
     </header>
 </div>
 
 <h3>Настройка порога</h3>
 <hr>
-<form action="#" th:action="@{/{id}}" th:object="${porogEdit}" method="post">
+<form action="#" th:action="@{/bonusRatio}" th:object="${updateThreshold}" method="post">
     <label for="id">id: </label>
     <input type="number" th:field="*{id}" id="id" readonly>
 
     <label for="lowerThreshold">Нижний порог: </label>
-    <input type="number" step="0.01" th:field="*{lowerThreshold}" id="lowerThreshold">
+    <input type="number" step="0.01" min="0.0" required th:field="*{lowerThreshold}" id="lowerThreshold">
     <label for="highThreshold">Высший порог: </label>
-    <input type="number" step="0.01" th:field="*{highThreshold}" id="highThreshold">
+    <input type="number" step="0.01" min="0.01" required th:field="*{highThreshold}" id="highThreshold">
     <label for="ratio">Коэффициент: </label>
-    <input type="number" step="0.01" th:field="*{ratio}" id="ratio">
-    <br/>
+    <input type="number" step="0.01" min="0.0" required th:field="*{ratio}" id="ratio">
+    <br/><br/>
+    <hr>
     <input type="submit" value="Изменить">
 </form>
 

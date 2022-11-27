@@ -17,7 +17,9 @@
         </a>
         <ul class="nav nav-pills">
             <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Главная страница</a></li>
+            &ensp;
             <li class="nav-item"><a href="/bonusRatio" class="nav-link active" aria-current="page">Настройка пороговых коэффициентов</a></li>
+            &ensp;
             <li class="nav-item"><a href="/planRatio" class="nav-link active" aria-current="page">Настройка коэффициентов выполнения плана</a></li>
         </ul>
     </header>
@@ -38,7 +40,7 @@
     <tbody>
     <tr th:each="pirogi : ${plan}" th:with="val=${pirogi.value}">
         <td>
-            <a th:href="@{/editplanRatio/{id}(id=${pirogi.key})}"
+            <a th:href="@{/editPlanRatio/{id}(id=${pirogi.key})}"
                th:text="${pirogi.key + ')'}"></a>
         </td>
         <td th:text="${val.lowerPercent}">1</td>

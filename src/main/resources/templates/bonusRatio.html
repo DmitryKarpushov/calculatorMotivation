@@ -18,8 +18,10 @@
         </a>
         <ul class="nav nav-pills">
             <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Главная страница</a></li>
-            <li class="nav-item"><a href="/bonusRatio" class="nav-link active" aria-current="page">Настройка пороговых
-                коэффициентов</a></li>
+            &ensp;
+            <li class="nav-item"><a href="/bonusRatio" class="nav-link active" aria-current="page">Настройка пороговых коэффициентов</a></li>
+            &ensp;
+            <li class="nav-item"><a href="/planRatio" class="nav-link active" aria-current="page">Настройка коэффициентов выполнения плана</a></li>
         </ul>
     </header>
 </div>
@@ -40,11 +42,11 @@
     <tbody>
     <tr th:each="pirogi : ${bonus}" th:with="val=${pirogi.value}">
         <td>
-            <a th:href="@{/editPorog/{id}(id=${pirogi.key})}"
-                    th:text="${pirogi.key + ')'}"></a>
+            <a th:href="@{/bonusRatio/{id}(id=${pirogi.key})}"
+               th:text="${pirogi.key + ')'}"></a>
         </td>
         <td th:text="${val.lowerThreshold}">1</td>
-        <td th:text="${val.highThreshold}">1</td>
+        <td th:text="${val.highThreshold}"></td>
         <td th:text="${val.ratio}">1</td>
     </tr>
     </tbody>

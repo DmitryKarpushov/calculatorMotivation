@@ -17,7 +17,9 @@
         </a>
         <ul class="nav nav-pills">
             <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Главная страница</a></li>
+            &ensp;
             <li class="nav-item"><a href="/bonusRatio" class="nav-link active" aria-current="page">Настройка пороговых коэффициентов</a></li>
+            &ensp;
             <li class="nav-item"><a href="/planRatio" class="nav-link active" aria-current="page">Настройка коэффициентов выполнения плана</a></li>
         </ul>
     </header>
@@ -25,31 +27,31 @@
 
 <h3>Поля ввода</h3>
 <form action="/forms/result" method="post">
-    Выручка: <input type="number" step="any" name="revenue"/><br><br>
-    Рентабельность(%): <input type="number" step="any" name="profitability"/><br><br>
-    План по выручке: <input type="number" step="any" name="revenuePlan"/><br><br>
-    ГСМ: <input type="number" step="any" name="fuelAndLubricants"/><br><br>
-    Скидка на ГСМ: <input type="number" step="any" name="discountFuelAndLubricants"/><br><br>
-    Дежурства: <input type="number" step="any" name="shifts"/><br><br>
-    НДС перевозчиков к возмещению: <input type="number" step="any" name="vatCarriers"/><br><br>
-    Рабочих дней: <input type="number" name="workDays"/><br><br>
-    Оклад: <input type="number" step="any" name="salary"/><br><br>
+    Выручка: <input type="number" step="any" name="revenue" min="1" required/><br><br>
+    Рентабельность(%): <input type="number" step="any" name="profitability" min="1" required/><br><br>
+    План по выручке: <input type="number" step="any" name="revenuePlan" min="1" required/><br><br>
+    ГСМ: <input type="number" step="any" name="fuelAndLubricants" min="1" required/><br><br>
+    Скидка на ГСМ: <input type="number" step="any" name="discountFuelAndLubricants" min="1" required/><br><br>
+    Дежурства: <input type="number" step="any" name="shifts" min="0" required/><br><br>
+    НДС перевозчиков к возмещению: <input type="number" step="any" name="vatCarriers" min="1" required/><br><br>
+    Рабочих дней: <input type="number" name="workDays" min="1" max="22" required/><br><br>
+    Оклад: <input type="number" step="any" name="salary"  min="13890" required/><br><br>
     <input type="submit" value="Рассчитать ЗП"/>
 </form>
 <hr>
 
-<table>
+<table th:if="${not #lists.isEmpty(resultFormResponse)}">
     <tr>
-        <th> Ставка </th>
-        <th> Оклад по рабочим дням </th>
-        <th> Мотивационная часть </th>
-        <th> С учетом оклада </th>
+        <th> Ставка  |</th>
+        <th>  Оклад по рабочим дням  |</th>
+        <th>  Мотивационная часть  </th>
+        <th>|  С учетом оклада  </th>
     </tr>
-    <tr th:each="resultResponse : ${resultFormResponse}">
-        <td th:text="${resultResponse.salaryDay}"></td>
-        <td th:text="${resultResponse.salaryMonth}"></td>
-        <td th:text="${resultResponse.motivationalPart}"></td>
-        <td th:text="${resultResponse.finalSalary}"></td>
+    <tr th:object="${resultFormResponse}">
+        <td th:text="*{salaryDay}"></td>
+        <td th:text="*{salaryMonth}"></td>
+        <td th:text="*{motivationalPart}"></td>
+        <td th:text="*{finalSalary}"></td>
     </tr>
 </table>
 

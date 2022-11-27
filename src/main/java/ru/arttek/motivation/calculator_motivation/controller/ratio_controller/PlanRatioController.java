@@ -17,20 +17,19 @@ public class PlanRatioController {
 
     @GetMapping("/planRatio")
     public String planRatio(Model model) {
-        model.addAttribute("plan", planRatioService.listPlanRatio());
+        model.addAttribute("plan", planRatioService.listPlannedRatio());
         return "planRatio";
     }
 
-    @GetMapping("/editplanRatio/{id}")
-    public String showPlanRatio(@PathVariable("id")int id, Model model) {
-        model.addAttribute("planEdit", planRatioService.showPlan(id));
-        return "editplanRatio";
+    @GetMapping("/editPlanRatio/{id}")
+    public String showPlanThresholdRatio(@PathVariable("id") Integer id, Model model) {
+        model.addAttribute("updatePlanThreshold", planRatioService.showPlannedThreshold(id));
+        return "editPlanRatio";
     }
 
-    //Костыль
-    @PostMapping("/ed/{id}")
-    public String editPlanRatio(@ModelAttribute("planEdit") PlanRatio planRatio) {
-        planRatioService.updatePlan(planRatio);
+    @PostMapping("/planRatio")
+    public String updatePlanThresholdRatio(@ModelAttribute("planEdit") PlanRatio planRatio) {
+        planRatioService.updatePlannedThreshold(planRatio);
         return "redirect:/planRatio";
     }
 }

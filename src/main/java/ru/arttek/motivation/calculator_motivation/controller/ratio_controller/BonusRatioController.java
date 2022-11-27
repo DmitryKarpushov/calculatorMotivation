@@ -21,15 +21,15 @@ public class BonusRatioController {
         return "bonusRatio";
     }
 
-    @GetMapping("/editPorog/{id}")
-    public String showRatio(@PathVariable("id")int id, Model model) {
-        model.addAttribute("porogEdit", bonusRatioService.showBonus(id));
-        return "editPorog";
+    @GetMapping("/bonusRatio/{id}")
+    public String showThresholdRatio(@PathVariable("id") Integer id, Model model) {
+        model.addAttribute("updateThreshold", bonusRatioService.showThreshold(id));
+        return "editBonusRatio";
     }
 
-    @PostMapping("/{id}")
-    public String editRatio(@ModelAttribute("porogEdit")BonusRatio bonusRatio) {
-        bonusRatioService.updateBonus(bonusRatio);
+    @PostMapping("/bonusRatio")
+    public String updateThresholdRatio(@ModelAttribute("updateThreshold") BonusRatio bonusRatio) {
+        bonusRatioService.updateThreshold(bonusRatio);
         return "redirect:/bonusRatio";
     }
 }
