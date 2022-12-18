@@ -10,7 +10,7 @@ import ru.arttek.motivation.calculator_motivation.model.work_with_form.AcceptedF
 import ru.arttek.motivation.calculator_motivation.service.calculator_service.SalaryCalculatorService;
 
 /**
- * @author Дмитрий Карпушов 22.11.2022
+ * @author Дмитрий Карпушов 22.11.2022/
  */
 @Controller
 @RequiredArgsConstructor
